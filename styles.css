@@ -1,0 +1,121 @@
+body {
+  background-color: black;
+  align-content: center;
+  overflow: hidden;
+  height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: consolas, Helvetica;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  border-radius: 2rem;
+  background-color: transparent;
+  box-shadow: inset -5px -5px 10px lime, inset 5px 5px 10px lime;
+  padding: 1rem;
+  max-width: 470px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (width <= 800px) and (orientation: portrait) {
+  .container {
+    max-width: 300px;
+    
+  }
+}
+@media (width <= 1200px) and (orientation: landscape) {
+  .container {
+    max-width: 450px;
+    max-height: 200px;
+  }
+}
+
+textarea {
+  resize: none;
+  border: none;
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: .5rem;
+  background-color: #ddd;
+  font-size: 1.1rem;
+}
+
+.container-btns {
+  display: flex;
+
+  article {
+    align-content: center;
+    flex-basis: 50%;
+    text-align: center;
+    color: white;
+    padding: .8rem;
+    cursor: pointer;
+    opacity: 1;
+    transition: .5s;
+    box-shadow: inset -5px -5px 20px currentColor, inset 5px 5px 20px currentColor;
+
+    &:hover {
+      
+      box-shadow: inset -5px -5px 40px currentColor, inset 5px 5px 40px currentColor;
+    }
+  }
+
+  .may {
+    color: #04aa6d;
+    border-bottom-left-radius: 1rem;
+  }
+  .min {
+    color: orange;
+    border-bottom-right-radius: 1rem;
+  }
+  .cap {
+    color: violet;
+    border-top-left-radius: 1rem;
+  }
+  .hyp {
+    color: #00f;
+    border-top-right-radius: 1rem;
+  }
+}
+
+
+
+
+/* ============================== RAIN ============================= */
+
+i.burbuja {
+  position: absolute;
+  right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  box-shadow: inset 0 0 5px #fff;
+  border-radius: 50%;
+  animation: bajar 5s linear infinite;
+  user-select: none;
+  pointer-events: none;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-image: radial-gradient(transparent, #fff);
+    transform: scale(.25) translate(-70%, -70%);
+  }
+}
+
+@keyframes bajar {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px));
+  }
+}
